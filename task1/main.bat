@@ -8,6 +8,18 @@
 echo Parametrs:
 for %%A in (%*) do (
     echo %%A
+
+    set menu_item=%%A
+
+    if %menu_item% == 1 (
+        start calc.bat
+    ) 
+    if %menu_item% == 2 (
+        start write_string.bat
+    )
+    if %menu_item% == 0 (
+        goto exit_label
+    )
 )
 
 
@@ -45,4 +57,3 @@ goto menu
 :exit_label
 
 echo [EXIT]
-exit
