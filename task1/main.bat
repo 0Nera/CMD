@@ -4,23 +4,19 @@
 @echo off
 
 :menu
+set parametrs=%*
 
-echo Parametrs:
-for %%A in (%*) do (
-    echo %%A
-
-    set menu_item=%%A
-
-    if %menu_item% == 1 (
+echo Parametrs: %parametrs%
+for %%p in (%parametrs%) do set /a menu_item=%%p & echo %menu_item% & if %menu_item% == 1 (
         start calc.bat
-    ) 
-    if %menu_item% == 2 (
+    ) else if %menu_item% == 1 (
+        start calc.bat
+    ) else if %menu_item% == 2 (
         start write_string.bat
-    )
-    if %menu_item% == 0 (
+    ) else if %menu_item% == 0 (
         goto exit_label
     )
-)
+    
 
 
 echo :***************************:
